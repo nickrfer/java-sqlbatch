@@ -1,0 +1,697 @@
+2016-03-13 15:12:57 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:12:57 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:12:57 INFO  Controlador:30 - Total de arquivos na pasta: 1
+2016-03-13 15:12:57 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:12:58 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:13:15 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:13:15 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:13:15 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:13:15 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:15:37 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:15:37 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:15:37 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:15:52 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:15:52 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:15:52 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:15:52 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:16:00 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:16:00 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:16:00 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:16:15 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:16:15 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:16:15 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:16:15 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:17:07 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:17:07 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:17:07 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:17:21 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:17:21 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:17:21 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:17:21 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:17:21 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:17:21 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:17:21 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:17:35 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:17:35 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:17:35 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:17:35 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:17:36 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:17:36 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:17:36 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:18:13 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:18:13 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:18:13 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:18:13 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:18:15 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:18:16 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:18:16 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:18:47 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:18:47 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:18:47 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:18:47 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:18:49 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:18:50 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:18:50 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:19:53 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:19:53 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:19:53 INFO  Controlador:30 - Total de arquivos na pasta: 11
+2016-03-13 15:19:53 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (2).txt
+2016-03-13 15:19:55 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (3).txt
+2016-03-13 15:19:56 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (4).txt
+2016-03-13 15:19:57 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (5).txt
+2016-03-13 15:19:58 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (6).txt
+2016-03-13 15:19:59 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (7).txt
+2016-03-13 15:20:00 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia (8).txt
+2016-03-13 15:20:01 INFO  Controlador:36 - Iniciando arquivo: 203324_unico - Cópia.txt
+2016-03-13 15:20:02 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:20:02 ERROR Controlador:57 - Erro ao tentar mover arquivo 203324_unico.txt para pasta 'executados'
+br.com.ctb.executorsql.exception.ArquivoImportacaoException: Erro ao tentar mover arquivo 203324_unico.txt para pasta 'executados'
+	at br.com.ctb.executorsql.util.ArquivoComando.moverArquivo(ArquivoComando.java:66)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:39)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2016-03-13 15:21:06 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:21:06 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:21:06 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:21:06 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:21:07 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:21:07 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:21:07 ERROR Controlador:57 - Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+br.com.ctb.executorsql.exception.DaoException: Comando com erro.
+ 
+	Arquivo: SALDODB2.txt 
+	Linha: 5 
+	Comando: INSERTCOMERRO
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:28)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:37)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.sql.BatchUpdateException: Incorrect syntax near 'INSERTCOMERRO'.
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeBatch(SQLServerStatement.java:1723)
+	at br.com.ctb.executorsql.dao.Dao.executarComandosBatch(Dao.java:48)
+	at br.com.ctb.executorsql.dao.Dao.insertBatch(Dao.java:26)
+	... 40 more
+2016-03-13 15:21:29 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:21:29 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:21:29 INFO  Controlador:30 - Total de arquivos na pasta: 0
+2016-03-13 15:21:55 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:21:55 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:21:55 INFO  Controlador:30 - Total de arquivos na pasta: 0
+2016-03-13 15:22:49 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:22:49 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:22:49 INFO  Controlador:30 - Total de arquivos na pasta: 0
+2016-03-13 15:24:37 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:24:37 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:24:37 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:24:37 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:25:36 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:25:36 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:25:36 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:25:36 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:26:15 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:26:15 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:26:15 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:26:15 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:26:51 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:26:51 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:26:51 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:26:51 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:27:40 ERROR Controlador:57 - Erro ao tentar mover arquivo 203324_unico.txt para pasta 'executados'
+br.com.ctb.executorsql.exception.ArquivoImportacaoException: Erro ao tentar mover arquivo 203324_unico.txt para pasta 'executados'
+	at br.com.ctb.executorsql.util.ArquivoComando.moverArquivo(ArquivoComando.java:66)
+	at br.com.ctb.executorsql.main.Controlador.inserirBatch(Controlador.java:39)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.onClickExecutar(UIExecutorSQL.java:184)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL.access$0(UIExecutorSQL.java:164)
+	at br.com.ctb.executorsql.ui.UIExecutorSQL$1.actionPerformed(UIExecutorSQL.java:127)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2016-03-13 15:28:08 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:28:08 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:28:08 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:28:08 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:28:31 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:28:35 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:29:37 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:29:37 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:29:37 INFO  Controlador:30 - Total de arquivos na pasta: 0
+2016-03-13 15:29:47 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:29:47 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:29:47 INFO  Controlador:30 - Total de arquivos na pasta: 3
+2016-03-13 15:29:47 INFO  Controlador:36 - Iniciando arquivo: 203324_unico.txt
+2016-03-13 15:30:11 INFO  Controlador:36 - Iniciando arquivo: db2.txt
+2016-03-13 15:30:13 INFO  Controlador:36 - Iniciando arquivo: SALDODB2.txt
+2016-03-13 15:31:06 INFO  Controlador:23 - --------------------------------------------------------------------
+2016-03-13 15:31:06 INFO  Controlador:24 - Iniciando importação 
+2016-03-13 15:31:06 INFO  Controlador:30 - Total de arquivos na pasta: 0

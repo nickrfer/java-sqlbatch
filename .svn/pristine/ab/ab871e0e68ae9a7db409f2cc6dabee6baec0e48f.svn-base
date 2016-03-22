@@ -1,0 +1,268 @@
+package br.com.ctb.executorsql.ui;
+
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JProgressBar;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import org.apache.log4j.Logger;
+
+import br.com.ctb.executorsql.exception.ControladorException;
+import br.com.ctb.executorsql.listener.ProgressoObservable;
+import br.com.ctb.executorsql.listener.ProgressoObserver;
+import br.com.ctb.executorsql.main.Controlador;
+import br.com.ctb.executorsql.util.ParametroBD;
+
+public class UIExecutorSQL extends JFrame {
+	private static final long serialVersionUID = 1L;
+	
+	private JLabel lbNomeBaseDados;
+	private JLabel lbNomeServidor;
+	private JLabel lbNumPorta;
+	private JLabel lbUsrBd;
+	private JLabel lbPassBd;
+	private JTextField txNomeBaseDados;
+	private JTextField txNomeServidor;
+	private JTextField txNumPorta;
+	private JTextField txUsrBd;
+	private JButton btExecutar;
+	private JButton btLimpar;
+	private JFileChooser compUpload;
+	private JPasswordField txPassBd;
+	private File pastaUpload;
+	private Container telaPrincipal;
+	private JProgressBar progressBar;
+	
+	private static final Logger log = Logger.getLogger(UIExecutorSQL.class);
+
+	public UIExecutorSQL() {
+		super("Executor de SQL");
+		this.telaPrincipal = getContentPane();
+		utilizarTema();
+
+		this.lbNomeBaseDados = new JLabel("Nome da Base de Dados:");
+		this.lbNomeServidor = new JLabel("Nome do Servidor:");
+		this.lbNumPorta = new JLabel("Número da Porta de Conexão:");
+		this.lbUsrBd = new JLabel("Usuário BD:");
+		this.lbPassBd = new JLabel("Senha BD:");
+
+		this.lbNomeBaseDados.setBounds(10, 15, 240, 15);
+		this.lbNomeServidor.setBounds(10, 55, 240, 15);
+		this.lbNumPorta.setBounds(10, 95, 240, 15);
+		this.lbUsrBd.setBounds(10, 135, 240, 15);
+		this.lbPassBd.setBounds(10, 175, 240, 15);
+
+		this.telaPrincipal.add(this.lbNomeBaseDados);
+		this.telaPrincipal.add(this.lbNomeServidor);
+		this.telaPrincipal.add(this.lbNumPorta);
+		this.telaPrincipal.add(this.lbUsrBd);
+		this.telaPrincipal.add(this.lbPassBd);
+
+		this.txNomeBaseDados = new JTextField();
+		this.txNomeServidor = new JTextField();
+		this.txNumPorta = new JTextField();
+		this.txUsrBd = new JTextField();
+		this.txPassBd = new JPasswordField();
+
+		this.txNomeBaseDados.setBounds(10, 30, 240, 20);
+		this.txNomeServidor.setBounds(10, 70, 240, 20);
+		this.txNumPorta.setBounds(10, 110, 240, 20);
+		this.txUsrBd.setBounds(10, 150, 240, 20);
+		this.txPassBd.setBounds(10, 190, 240, 20);
+
+		this.telaPrincipal.add(this.txNomeBaseDados);
+		this.telaPrincipal.add(this.txNomeServidor);
+		this.telaPrincipal.add(this.txNumPorta);
+		this.telaPrincipal.add(this.txUsrBd);
+		this.telaPrincipal.add(this.txPassBd);
+
+		this.btExecutar = new JButton("Executar");
+		this.btLimpar = new JButton("Limpar");
+
+		this.btExecutar.setBounds(10, 230, 80, 30);
+		this.btExecutar.setOpaque(false);
+		this.btLimpar.setBounds(170, 230, 80, 30);
+		this.btLimpar.setOpaque(false);
+		
+		this.progressBar = new JProgressBar();
+		this.progressBar.setValue(0);
+		this.progressBar.setStringPainted(true);
+	    this.progressBar.setBounds(10, 270, 250, 30);
+	    this.add(progressBar);
+
+		this.telaPrincipal.add(this.btExecutar);
+		this.telaPrincipal.add(this.btLimpar);
+
+		Image image = Toolkit.getDefaultToolkit()
+				.getImage(UIExecutorSQL.class.getResource("/br/com/ctb/imagem/glyphicons-37-file.png"));
+
+		setLayout(null);
+		setVisible(true);
+		setSize(270, 350);
+		setIconImage(image);
+		setResizable(false);
+		setLocationRelativeTo(null);
+
+		this.btExecutar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UIExecutorSQL.this.onClickExecutar();
+			}
+		});
+		this.btLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UIExecutorSQL.this.limparCampos();
+			}
+		});
+		
+		try {
+			lerPropriedades();
+		} catch (IOException e) {
+			log.error("Erro ao tentar recuperar arquivo de propriedades.", e);
+		}
+	}
+
+	private void lerPropriedades() throws IOException {
+		final Properties properties = new Properties();
+		try (final InputStream stream =
+		           this.getClass().getResourceAsStream("/executorsql.properties")) {
+			if (stream != null) {
+				properties.load(stream);
+				this.txNomeBaseDados.setText(properties.getProperty("nome.base.dados"));
+				this.txNomeServidor.setText(properties.getProperty("nome.servidor"));
+				this.txNumPorta.setText(properties.getProperty("num.porta"));
+				this.txUsrBd.setText(properties.getProperty("usuario.bd"));
+				this.txPassBd.setText(properties.getProperty("senha.bd"));
+				
+				String caminhoDiretorio = properties.getProperty("caminho.diretorio");
+				if (caminhoDiretorio != null) {
+					caminhoDiretorio = caminhoDiretorio.replace('\\', '/');
+					pastaUpload = new File(caminhoDiretorio);
+				}
+			}
+		}
+	}
+
+	private void onClickExecutar() {
+		ParametroBD infoTela = new ParametroBD();
+
+		Cursor cursor = Cursor.getPredefinedCursor(3);
+		this.telaPrincipal.setCursor(cursor);
+
+		if (validarCamposObrigatorios().booleanValue()) {
+			if (pastaUpload == null) {
+				criarTelaUpload();
+			}
+			
+			this.progressBar.setValue(0);
+			this.btExecutar.setEnabled(false);
+			preencherInformacoes(infoTela);
+			Controlador controlador = new Controlador();
+			
+			try {
+				ProgressoObservable observable = new ProgressoObservable();
+				observable.addObserver(new ProgressoObserver(observable, progressBar));
+				
+				controlador.inserirBatch(infoTela, this.pastaUpload, observable);
+				JOptionPane.showMessageDialog(this, "Importação finalizada!", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+			} catch (ControladorException e) {
+				JOptionPane.showMessageDialog(this, String.format(String.format("%s.", e.getLocalizedMessage())), "Alerta", JOptionPane.ERROR_MESSAGE);
+			} finally {
+				this.btExecutar.setEnabled(true);
+			}
+		}
+		cursor = Cursor.getDefaultCursor();
+		this.telaPrincipal.setCursor(cursor);
+	}
+
+	private void criarTelaUpload() {
+		compUpload = new JFileChooser();
+		compUpload.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+		int valorRetorno = this.compUpload.showOpenDialog(this.telaPrincipal);
+		if (valorRetorno == 0) {
+			this.pastaUpload = this.compUpload.getSelectedFile();
+		}
+	}
+
+	private void preencherInformacoes(ParametroBD parametroBd) {
+		parametroBd.setNomeBd(this.txNomeBaseDados.getText());
+		parametroBd.setNomeServidor(this.txNomeServidor.getText());
+		parametroBd.setPortaBd(this.txNumPorta.getText());
+		parametroBd.setUsrBd(this.txUsrBd.getText());
+		parametroBd.setPswBd(new String(this.txPassBd.getPassword()));
+	}
+
+	private Boolean validarCamposObrigatorios() {
+		Boolean bolValido = Boolean.valueOf(true);
+		StringBuffer sb = new StringBuffer();
+
+		if (this.txNomeBaseDados.getText().trim().length() < 1) {
+			sb.append("Campo Nome Base Dados é obrigatório. \n");
+		}
+		if (this.txNomeServidor.getText().trim().length() < 1) {
+			sb.append("Campo Nome Servidor é obrigatório. \n");
+		}
+		if (this.txNumPorta.getText().trim().length() < 1) {
+			sb.append("Campo Num. Porta Conexão é obrigatório. \n");
+		}
+		if (this.txUsrBd.getText().trim().length() < 1) {
+			sb.append("Campo Usuário BD é obrigatório. \n");
+		}
+		if (this.txPassBd.getPassword().length < 1) {
+			sb.append("Campo Senha Usuário BD é obrigatório. \n");
+		}
+
+		if (sb.toString().trim().length() > 0) {
+			bolValido = Boolean.valueOf(false);
+
+			JOptionPane.showMessageDialog(this, sb.toString());
+		}
+
+		return bolValido;
+	}
+
+	private void limparCampos() {
+		this.txNomeBaseDados.setText("");
+		this.txNomeServidor.setText("");
+		this.txNumPorta.setText("");
+		this.txUsrBd.setText("");
+		this.txPassBd.setText("");
+		this.pastaUpload = null;
+		this.progressBar.setValue(0);
+	}
+
+	private void utilizarTema() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(this, "Não foi possível localizar o tema para tela.");
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			JOptionPane.showMessageDialog(this, "Não foi possível instanciar o tema para tela.");
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			JOptionPane.showMessageDialog(this, "Não foi possível acessar o tema para tela.");
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			JOptionPane.showMessageDialog(this, "O tema para a tela não é suportado.");
+			e.printStackTrace();
+		}
+	}
+}

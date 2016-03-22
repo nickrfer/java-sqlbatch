@@ -1,0 +1,80 @@
+package br.com.ctb.executorsql.util;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.ctb.executorsql.exception.ArquivoImportacaoException;
+
+public class ArquivoComando {
+
+	private File arquivo;
+	private BufferedReader bufferedReader = null;
+	private int linhaAtual;
+	
+	public ArquivoComando(File arquivo) {
+		this.arquivo = arquivo;
+	}
+
+	public List<String> lerComandosPaginados() throws ArquivoImportacaoException {
+		try {
+			if (bufferedReader == null) {
+				bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(arquivo)));
+			}
+			return recuperarComandosPaginados();
+		} catch (IOException e) {
+			throw new ArquivoImportacaoException(String.format("Erro durante a leitura do arquivo %s", arquivo.getName()), e);
+		}
+	}
+
+	private List<String> recuperarComandosPaginados() throws IOException {
+		List<String> linhasComando = new ArrayList<String>();
+		
+		int comandoAtual = 0;
+		String linha = null;
+		while ((linha = bufferedReader.readLine()) != null) {
+			++linhaAtual;
+			
+			if (linha.startsWith("INSERT")) {
+				++comandoAtual;
+				linhasComando.add(linha);
+			}
+			if (comandoAtual >= 1000) {
+				break;
+			}
+		}
+		return linhasComando;
+	}
+	
+	public String recuperarNomeArquivo() {
+		return arquivo.getName();
+	}
+	
+	public int recuperarLinhaAtual() {
+		return linhaAtual;
+	}
+	
+	public void moverArquivo() throws ArquivoImportacaoException {
+		File pastaExecutados = new File(arquivo.getParent() + "/executados/");
+		pastaExecutados.mkdirs();
+		
+		if (!arquivo.renameTo(new File(pastaExecutados.getPath() + "/" + arquivo.getName()))) {
+			throw new ArquivoImportacaoException(String.format("Erro ao tentar mover arquivo %s para pasta 'executados'", recuperarNomeArquivo()));
+		}
+	}
+	
+	public void fechar() throws ArquivoImportacaoException {
+		if (bufferedReader != null) {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				throw new ArquivoImportacaoException(String.format("Erro ao fechar o leitor do arquivo %s", arquivo.getName()), e);
+			}
+		}
+	}
+	
+}

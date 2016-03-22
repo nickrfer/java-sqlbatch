@@ -1,0 +1,86 @@
+package br.com.ctb.executorsql.util;
+
+public class ParametroBD {
+	
+	private String idUsuario;
+	private String nomeUsuario;
+	private String numCooperativa;
+	private String nomeBd;
+	private String nomeServidor;
+	private String portaBd;
+	private String grupoPermissao;
+	private String usrBd;
+	private String pswBd;
+
+	public String getIdUsuario() {
+		return this.idUsuario;
+	}
+
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public String getNomeUsuario() {
+		return this.nomeUsuario;
+	}
+
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
+	}
+
+	public String getNumCooperativa() {
+		return this.numCooperativa;
+	}
+
+	public void setNumCooperativa(String numCooperativa) {
+		this.numCooperativa = numCooperativa;
+	}
+
+	public String getGrupoPermissao() {
+		return this.grupoPermissao;
+	}
+
+	public void setGrupoPermissao(String grupoPermissao) {
+		this.grupoPermissao = grupoPermissao;
+	}
+
+	public void setNomeServidor(String nomeServidor) {
+		this.nomeServidor = nomeServidor;
+	}
+
+	public String getNomeBd() {
+		return this.nomeBd;
+	}
+
+	public void setNomeBd(String nomeBd) {
+		this.nomeBd = nomeBd;
+	}
+
+	public void setPortaBd(String portaBd) {
+		this.portaBd = portaBd;
+	}
+
+	public String getUsrBd() {
+		return this.usrBd;
+	}
+
+	public void setUsrBd(String usrBd) {
+		this.usrBd = usrBd;
+	}
+
+	public String getPswBd() {
+		return this.pswBd;
+	}
+
+	public void setPswBd(String pswBd) {
+		this.pswBd = pswBd;
+	}
+
+	public String getNomeServidor() {
+		return this.nomeServidor;
+	}
+
+	public String getPortaBd() {
+		return this.portaBd;
+	}
+}

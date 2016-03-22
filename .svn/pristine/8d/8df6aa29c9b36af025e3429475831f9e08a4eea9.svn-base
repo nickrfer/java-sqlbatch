@@ -1,0 +1,88 @@
+package br.com.ctb.executorsql.dao;
+
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import br.com.ctb.executorsql.exception.ArquivoImportacaoException;
+import br.com.ctb.executorsql.exception.DaoException;
+import br.com.ctb.executorsql.util.ArquivoComando;
+import br.com.ctb.executorsql.util.ParametroBD;
+
+public class Dao {
+	
+	private static final Logger log = Logger.getLogger(Dao.class);
+	private ConnectionFactory factory;
+	private int linhaUltimoCommit;
+	private String ultimoComando;
+
+	public Dao(ParametroBD vo) {
+		this.factory = new ConnectionFactory(vo.getNomeServidor(), vo.getPortaBd(), vo.getNomeBd(), vo.getUsrBd(),
+				vo.getPswBd());
+	}
+
+	public void insertBatch(ParametroBD vo, ArquivoComando comandoArquivo) throws DaoException {
+		Statement stmt = null;
+		
+		try {
+			stmt = criarStatement();
+			executarComandosBatch(comandoArquivo, stmt);
+		} catch (SQLException e) {
+			throw new DaoException(String.format("Comando com erro.%n %n\tArquivo: %s %n\tLinha: %d %n\tComando: %s %n\tLinha Último Commit: %d ", 
+					comandoArquivo.recuperarNomeArquivo(), comandoArquivo.recuperarLinhaAtual(), ultimoComando, linhaUltimoCommit), e);
+		} catch (Exception e) {
+			throw new DaoException(e.getMessage(), e);
+		} finally {
+			fecharRecursos(comandoArquivo, stmt);
+		}
+	}
+
+	private void executarComandosBatch(ArquivoComando comandoArquivo, Statement stmt)
+			throws ArquivoImportacaoException, SQLException {
+		List<String> listaComandos = null;
+		while (!(listaComandos = comandoArquivo.lerComandosPaginados()).isEmpty()) {
+			
+			for (String comando : listaComandos) {
+				ultimoComando = comando;
+				stmt.addBatch(comando);
+			}
+			stmt.executeBatch();
+			linhaUltimoCommit = comandoArquivo.recuperarLinhaAtual();
+		}
+	}
+	
+	private Statement criarStatement() throws DaoException {
+		try {
+			return this.factory.getConnection().createStatement();
+		} catch (SQLException e) {
+			throw new DaoException("Erro ao tentar realizar a Conexão ao Banco de Dados", e);
+		} catch (ClassNotFoundException e) {
+			throw new DaoException("Erro ao localizar o adaptador de Conexão ao Banco de Dados", e);
+		}
+	}
+	
+	public void finalizarConexao() throws DaoException {
+		try {
+			factory.getConnection().close();
+			factory.limparConexao();
+		} catch (Exception e) {
+			log.debug("Erro ao tentar finalizar recursos do BD", e);
+		}
+	}
+
+	private void fecharRecursos(ArquivoComando comandoArquivo, Statement stmt) throws DaoException {
+		try {
+			comandoArquivo.fechar();
+		} catch (ArquivoImportacaoException e) {
+			throw new DaoException(e.getMessage(), e);
+		}
+		try {
+			stmt.close();
+		} catch (Exception e) {
+			log.debug("Erro ao tentar finalizar recursos do BD", e);
+		}
+	}
+
+}

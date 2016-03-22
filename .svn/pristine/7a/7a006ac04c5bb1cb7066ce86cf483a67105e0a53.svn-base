@@ -1,0 +1,172 @@
+package br.com.ctb.executorsql.dao;
+//package br.com.ctb.batch.dao;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//import br.com.ctb.batch.vo.ControleVO;
+//
+//public class GeradorComandoSQL {
+//	public List<String> gerarComandoUsuario(String idUsuario, String nomeUsuario, String numCooperativa,
+//			String grupoPermissao, String nomeBaseDados) {
+//		List listaComandosUsuario = new ArrayList();
+//
+//		String sqlCriarGrupo = extrairComandoCriarGrupo(grupoPermissao, nomeBaseDados);
+//
+//		String sqlCriarUsuario = extrairComandoCriarUsuario(idUsuario, nomeUsuario, numCooperativa, nomeBaseDados);
+//
+//		String sqlCriarUsuarioPorGrupo = extrairComandoCriarUsuarioPorGrupo(idUsuario, grupoPermissao, nomeBaseDados);
+//
+//		listaComandosUsuario.add(sqlCriarGrupo);
+//		listaComandosUsuario.add(sqlCriarUsuario);
+//		listaComandosUsuario.add(sqlCriarUsuarioPorGrupo);
+//
+//		return listaComandosUsuario;
+//	}
+//
+//	private String extrairComandoCriarUsuarioPorGrupo(String idUsuario, String grupoPermissao, String nomeBaseDados) {
+//		StringBuilder sb = new StringBuilder();
+//
+//		sb.append("USE ");
+//		sb.append(nomeBaseDados);
+//		sb.append("; ");
+//		sb.append("IF NOT EXISTS (SELECT * FROM UsuarioPorGrupo WHERE IDUsuario = '");
+//		sb.append(idUsuario);
+//		sb.append("') ");
+//		sb.append("BEGIN ");
+//		sb.append("INSERT UsuarioPorGrupo ");
+//		sb.append("(IDUsuario, IDGrupo) ");
+//		sb.append("VALUES ");
+//		sb.append("('");
+//		sb.append(idUsuario);
+//		sb.append("', '");
+//		sb.append(grupoPermissao);
+//		sb.append("') ");
+//		sb.append("END ");
+//
+//		return sb.toString();
+//	}
+//
+//	private String extrairComandoCriarUsuario(String idUsuario, String nomeUsuario, String numCooperativa,
+//			String nomeBaseDados) {
+//		StringBuilder sb = new StringBuilder();
+//
+//		sb.append("USE ");
+//		sb.append(nomeBaseDados);
+//		sb.append("; ");
+//		sb.append("IF NOT EXISTS (SELECT * FROM Usuario WHERE IDUsuario = '");
+//		sb.append(idUsuario);
+//		sb.append("') ");
+//		sb.append("BEGIN ");
+//		sb.append("INSERT Usuario ");
+//		sb.append("(idusuario, numcooperativa, numpac, descnomeusuario, bolhabilitadousuario) ");
+//		sb.append("VALUES ");
+//		sb.append("('");
+//		sb.append(idUsuario);
+//		sb.append("', ");
+//		sb.append(numCooperativa);
+//		sb.append(", 0, '");
+//		sb.append(nomeUsuario);
+//		sb.append("', 1) ");
+//		sb.append("END ");
+//
+//		return sb.toString();
+//	}
+//
+//	private String extrairComandoCriarGrupo(String grupoPermissao, String nomeBaseDados) {
+//		StringBuilder sb = new StringBuilder();
+//
+//		sb.append("USE ");
+//		sb.append(nomeBaseDados);
+//		sb.append("; ");
+//		sb.append("IF NOT EXISTS (SELECT * FROM Grupo WHERE IDGrupo = '");
+//		sb.append(grupoPermissao);
+//		sb.append("') ");
+//		sb.append("BEGIN ");
+//		sb.append("INSERT Grupo ");
+//		sb.append("(IDGrupo, DescGrupo, BolAdmBancoob) ");
+//		sb.append("VALUES ");
+//		sb.append("('");
+//		sb.append(grupoPermissao);
+//		sb.append("', '");
+//		sb.append(grupoPermissao);
+//		sb.append("', 0) ");
+//		sb.append("END ");
+//
+//		return sb.toString();
+//	}
+//
+//	public List<String> gerarComandoControle(List<ControleVO> listaControle, String nomeBase, String grupoPermissao) {
+//		List listaComandoControle = new ArrayList();
+//
+//		if ((listaControle != null) && (listaControle.size() > 0)) {
+//			for (ControleVO vo : listaControle) {
+//				listaComandoControle
+//						.add(extrairComandoControle(nomeBase, vo.getId(), vo.getFormulario(), vo.getLabel()));
+//				listaComandoControle
+//						.add(extrairComandoPermissao(nomeBase, vo.getId(), grupoPermissao, vo.getFormulario()));
+//			}
+//
+//		}
+//
+//		return listaComandoControle;
+//	}
+//
+//	private String extrairComandoControle(String nomeBase, String idControle, String idFormulario,
+//			String descControle) {
+//		StringBuilder sb = new StringBuilder();
+//
+//		sb.append("USE ");
+//		sb.append(nomeBase);
+//		sb.append("; ");
+//		sb.append("IF NOT EXISTS (SELECT * FROM Controle WHERE IDControle = '");
+//		sb.append(idControle);
+//		sb.append("' AND IDFormulario = '");
+//		sb.append(idFormulario);
+//		sb.append("') ");
+//		sb.append("BEGIN ");
+//		sb.append("INSERT Controle ");
+//		sb.append("(IDControle, IDFormulario, DescControle, BolAdmBancoob) ");
+//		sb.append("VALUES ");
+//		sb.append("('");
+//		sb.append(idControle);
+//		sb.append("', '");
+//		sb.append(idFormulario);
+//		sb.append("', '");
+//		sb.append(descControle);
+//		sb.append("', 0) ");
+//		sb.append("END ");
+//
+//		return sb.toString();
+//	}
+//
+//	private String extrairComandoPermissao(String nomeBase, String idControle, String idGrupoPermissao,
+//			String idFormulario) {
+//		StringBuilder sb = new StringBuilder();
+//
+//		sb.append("USE ");
+//		sb.append(nomeBase);
+//		sb.append("; ");
+//		sb.append("IF NOT EXISTS (SELECT * FROM Permissao WHERE IDControle = '");
+//		sb.append(idControle);
+//		sb.append("' AND IDFormulario = '");
+//		sb.append(idFormulario);
+//		sb.append("' AND IDGrupo = '");
+//		sb.append(idGrupoPermissao);
+//		sb.append("') ");
+//		sb.append("BEGIN ");
+//		sb.append("INSERT Permissao ");
+//		sb.append("(idControle, idGrupo, idFormulario) ");
+//		sb.append("VALUES ");
+//		sb.append("('");
+//		sb.append(idControle);
+//		sb.append("', '");
+//		sb.append(idGrupoPermissao);
+//		sb.append("', '");
+//		sb.append(idFormulario);
+//		sb.append("') ");
+//		sb.append("END ");
+//
+//		return sb.toString();
+//	}
+//}

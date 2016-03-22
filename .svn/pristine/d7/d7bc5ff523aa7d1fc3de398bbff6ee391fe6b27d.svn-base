@@ -1,0 +1,33 @@
+package br.com.ctb.executorsql.listener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProgressoObservable {
+
+	public List<ProgressoObserver> listaObserver = new ArrayList<ProgressoObserver>();
+	private int totalArquivo;
+	private int arquivoAtual;
+	
+	public void addObserver(ProgressoObserver observer) {
+		listaObserver.add(observer);
+	}
+	
+	public void notificarObservers(int totalArquivo, int arquivoAtual) {
+		this.totalArquivo = totalArquivo;
+		this.arquivoAtual = arquivoAtual;
+		
+		for (ProgressoObserver observer : listaObserver) {
+			observer.notificar();
+		}
+	}
+
+	public int getTotalArquivo() {
+		return totalArquivo;
+	}
+
+	public int getArquivoAtual() {
+		return arquivoAtual;
+	}
+	
+}
