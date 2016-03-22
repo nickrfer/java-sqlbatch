@@ -1,6 +1,0 @@
-nome.base.dados=BD1003Gesic_012015
-nome.servidor=SQLH108
-num.porta=1433
-usuario.bd=UsrGesic
-senha.bd=UsrGesic*017@
-caminho.diretorio=D:\\tmp\\arquivos_sql
