@@ -17,7 +17,7 @@ Since the DB2 and Oracle drivers are not available at the mavenrepository.com, y
 mvn install:install-file Dpackaging=jar -Dfile=<USER_HOME>/ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.1
 
 - db2jcc:
-mvn install:install-file Dpackaging=jar -Dfile=<USER_HOME>/db2jcc_license_cu.jar -DgroupId=com.ibm.db2.jcc -DartifactId=db2jcc_license_cu -Dversion=3.8.47
+mvn install:install-file Dpackaging=jar -Dfile=<USER_HOME>/db2jcc.jar -DgroupId=com.ibm.db2.jcc -DartifactId=db2jcc -Dversion=3.8.47
 
 - db2jcc_lcense_cu:
 mvn install:install-file -Dpackaging=jar -Dfile=<USER_HOME>/db2jcc_license_cu.jar -DgroupId=com.ibm.db2.jcc -DartifactId=db2jcc_license_cu -Dversion=3.8.47
