@@ -6,10 +6,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.sqlbatch.dao.connection.ConnectionFactory;
 import com.sqlbatch.exception.CommandFileException;
 import com.sqlbatch.exception.DaoException;
 import com.sqlbatch.util.CommandFile;
-import com.sqlbatch.util.DBParameter;
+import com.sqlbatch.util.DBParameterVO;
 
 public class Dao {
 	
@@ -18,12 +19,11 @@ public class Dao {
 	private int lastCommitLine;
 	private String lastCommand;
 
-	public Dao(DBParameter vo) {
-		this.factory = new ConnectionFactory(vo.getServerName(), vo.getDBPort(), vo.getDBName(), vo.getDBUser(),
-				vo.getDBPassword());
+	public Dao(DBParameterVO vo) {
+		this.factory = new ConnectionFactory(vo);
 	}
 
-	public void insertBatch(DBParameter vo, CommandFile commandFile) throws DaoException {
+	public void insertBatch(DBParameterVO vo, CommandFile commandFile) throws DaoException {
 		Statement stmt = null;
 		
 		try {

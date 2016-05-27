@@ -1,35 +1,33 @@
-package com.sqlbatch.dao;
+package com.sqlbatch.dao.connection;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Map;
+
+import com.sqlbatch.enums.DatabaseEnum;
+import com.sqlbatch.util.DBParameterVO;
 
 public class ConnectionFactory {
-	private static final String DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	private static final String URL_CONEXAO = "jdbc:sqlserver://%s:%s;DatabaseName=%s";
+	private static Map<DatabaseEnum, BaseConnectionProvider> connectionMap;
+	
+	static {
+		connectionMap.put(DatabaseEnum.DB2, new DB2Connection());
+		connectionMap.put(DatabaseEnum.ORACLE, new OracleConnection());
+		connectionMap.put(DatabaseEnum.SQLSERVER, new SQLServerConnection());
+	}
+	
 	private static Connection conx;
-	private String serverName;
-	private String serverPort;
-	private String nomeBD;
-	private String dbUser;
-	private String dbPassword;
+	private DBParameterVO dbParameterVO;
 
-	public ConnectionFactory(String serverName, String serverPort, String nomeBD, String dbUser,
-			String dbPassword) {
-		this.serverName = serverName;
-		this.serverPort = serverPort;
-		this.nomeBD = nomeBD;
-		this.dbUser = dbUser;
-		this.dbPassword = dbPassword;
+	public ConnectionFactory(DBParameterVO dbParameterVO) {
+		this.dbParameterVO = dbParameterVO;
 	}
 
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		if (conx == null) {
-			Class.forName(DRIVER_CLASS);
-			String urlConx = prepareConnectionUrl();
-			conx = DriverManager.getConnection(urlConx, this.dbUser, this.dbPassword);
+			DatabaseEnum databaseEnum = dbParameterVO.getDatabaseEnum();
+			connectionMap.get(databaseEnum).getConnection(dbParameterVO);
 		}
-
 		return conx;
 	}
 	
@@ -37,7 +35,4 @@ public class ConnectionFactory {
 		conx = null;
 	}
 
-	private String prepareConnectionUrl() throws SQLException {
-		return String.format(URL_CONEXAO, serverName, serverPort, nomeBD);
-	}
 }

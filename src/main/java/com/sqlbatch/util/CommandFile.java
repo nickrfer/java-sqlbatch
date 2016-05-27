@@ -16,6 +16,10 @@ public class CommandFile {
 	private BufferedReader bufferedReader = null;
 	private int currentLine;
 	
+	private static String[] DML_COMMANDS = new String[] {
+			"INSERT", "DELETE", "UPDATE", "MERGE", "CALL"
+	};
+	
 	public CommandFile(File file) {
 		this.file = file;
 	}
@@ -39,7 +43,7 @@ public class CommandFile {
 		while ((line = bufferedReader.readLine()) != null) {
 			++currentLine;
 			
-			if (line.startsWith("INSERT")) {
+			if (isDMLCommand(line)) {
 				++currentCommand;
 				commandLines.add(line);
 			}
@@ -48,6 +52,15 @@ public class CommandFile {
 			}
 		}
 		return commandLines;
+	}
+
+	private boolean isDMLCommand(String line) {
+		for (String dml : DML_COMMANDS) {
+			if (line.startsWith(dml)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public String getFileName() {

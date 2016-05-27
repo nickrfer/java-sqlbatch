@@ -11,13 +11,13 @@ import com.sqlbatch.exception.DaoException;
 import com.sqlbatch.observer.ProgressObservable;
 import com.sqlbatch.util.CommandDirectory;
 import com.sqlbatch.util.CommandFile;
-import com.sqlbatch.util.DBParameter;
+import com.sqlbatch.util.DBParameterVO;
 
 public class Controller {
 	
 	private static final Logger log = Logger.getLogger(Controller.class);
 	
-	public void insertBatch(DBParameter dbParameter, File directory, ProgressObservable observable) throws ControllerException {
+	public void insertBatch(DBParameterVO dbParameter, File directory, ProgressObservable observable) throws ControllerException {
 		validateDirectory(directory);
 
 		log.info("--------------------------------------------------------------------");

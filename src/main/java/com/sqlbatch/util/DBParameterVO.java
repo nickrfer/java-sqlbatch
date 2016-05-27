@@ -1,12 +1,15 @@
 package com.sqlbatch.util;
 
-public class DBParameter {
+import com.sqlbatch.enums.DatabaseEnum;
+
+public class DBParameterVO {
 	
 	private String dbName;
 	private String serverName;
 	private String dbPort;
 	private String dbUser;
-	private String dbPassowrd;
+	private String dbPassword;
+	private DatabaseEnum databaseEnum;
 
 	public void setServerName(String nomeServidor) {
 		this.serverName = nomeServidor;
@@ -33,11 +36,11 @@ public class DBParameter {
 	}
 
 	public String getDBPassword() {
-		return this.dbPassowrd;
+		return this.dbPassword;
 	}
 
 	public void setDBPassword(String pswBd) {
-		this.dbPassowrd = pswBd;
+		this.dbPassword = pswBd;
 	}
 
 	public String getServerName() {
@@ -46,5 +49,13 @@ public class DBParameter {
 
 	public String getDBPort() {
 		return this.dbPort;
+	}
+	
+	public DatabaseEnum getDatabaseEnum() {
+		return databaseEnum;
+	}
+
+	public void setDatabaseEnum(DatabaseEnum databaseEnum) {
+		this.databaseEnum = databaseEnum;
 	}
 }

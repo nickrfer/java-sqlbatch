@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.Properties;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,20 +28,23 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.log4j.Logger;
 
+import com.sqlbatch.enums.DatabaseEnum;
 import com.sqlbatch.exception.ControllerException;
 import com.sqlbatch.main.Controller;
 import com.sqlbatch.observer.ProgressObservable;
 import com.sqlbatch.observer.ProgressObserver;
-import com.sqlbatch.util.DBParameter;
+import com.sqlbatch.util.DBParameterVO;
 
 public class UISqlBatch extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
+	private JLabel lbDB;
 	private JLabel lbDBName;
 	private JLabel lbServerName;
 	private JLabel lbDBPort;
 	private JLabel lbDBUser;
 	private JLabel lbDBPassword;
+	private JComboBox<DatabaseEnum> cbDB;
 	private JTextField txDBName;
 	private JTextField txServerName;
 	private JTextField txDBPort;
@@ -60,36 +64,43 @@ public class UISqlBatch extends JFrame {
 		this.mainContainer = getContentPane();
 		useTheme();
 
+		this.lbDB = new JLabel("Database:");
 		this.lbDBName = new JLabel("Database Name:");
 		this.lbServerName = new JLabel("Server Name:");
 		this.lbDBPort = new JLabel("Database Port:");
 		this.lbDBUser = new JLabel("User:");
 		this.lbDBPassword = new JLabel("Password:");
 
-		this.lbDBName.setBounds(10, 15, 240, 15);
-		this.lbServerName.setBounds(10, 55, 240, 15);
-		this.lbDBPort.setBounds(10, 95, 240, 15);
-		this.lbDBUser.setBounds(10, 135, 240, 15);
-		this.lbDBPassword.setBounds(10, 175, 240, 15);
+		this.lbDB.setBounds(10, 15, 240, 15);
+		this.lbDBName.setBounds(10, 55, 240, 15);
+		this.lbServerName.setBounds(10, 95, 240, 15);
+		this.lbDBPort.setBounds(10, 135, 240, 15);
+		this.lbDBUser.setBounds(10, 175, 240, 15);
+		this.lbDBPassword.setBounds(10, 215, 240, 15);
 
+		this.mainContainer.add(this.lbDB);
 		this.mainContainer.add(this.lbDBName);
 		this.mainContainer.add(this.lbServerName);
 		this.mainContainer.add(this.lbDBPort);
 		this.mainContainer.add(this.lbDBUser);
 		this.mainContainer.add(this.lbDBPassword);
 
+		this.cbDB = new JComboBox<DatabaseEnum>(DatabaseEnum.values());
 		this.txDBName = new JTextField();
 		this.txServerName = new JTextField();
 		this.txDBPort = new JTextField();
 		this.txDBUser = new JTextField();
 		this.txDBPassword = new JPasswordField();
 
-		this.txDBName.setBounds(10, 30, 240, 20);
-		this.txServerName.setBounds(10, 70, 240, 20);
-		this.txDBPort.setBounds(10, 110, 240, 20);
-		this.txDBUser.setBounds(10, 150, 240, 20);
-		this.txDBPassword.setBounds(10, 190, 240, 20);
+		this.cbDB.setBounds(10, 30, 240, 20);
+		this.txDBName.setBounds(10, 70, 240, 20);
+		this.txServerName.setBounds(10, 110, 240, 20);
+		this.txDBPort.setBounds(10, 150, 240, 20);
+		this.txDBUser.setBounds(10, 190, 240, 20);
+		this.txDBPassword.setBounds(10, 230, 240, 20);
+		
 
+		this.mainContainer.add(this.cbDB);
 		this.mainContainer.add(this.txDBName);
 		this.mainContainer.add(this.txServerName);
 		this.mainContainer.add(this.txDBPort);
@@ -99,15 +110,15 @@ public class UISqlBatch extends JFrame {
 		this.btExecute = new JButton("Execute");
 		this.btClean = new JButton("Clean");
 
-		this.btExecute.setBounds(10, 230, 80, 30);
+		this.btExecute.setBounds(10, 270, 80, 30);
 		this.btExecute.setOpaque(false);
-		this.btClean.setBounds(170, 230, 80, 30);
+		this.btClean.setBounds(170, 270, 80, 30);
 		this.btClean.setOpaque(false);
 		
 		this.progressBar = new JProgressBar();
 		this.progressBar.setValue(0);
 		this.progressBar.setStringPainted(true);
-	    this.progressBar.setBounds(10, 270, 250, 30);
+	    this.progressBar.setBounds(10, 310, 250, 30);
 	    this.add(progressBar);
 
 		this.mainContainer.add(this.btExecute);
@@ -118,7 +129,7 @@ public class UISqlBatch extends JFrame {
 
 		setLayout(null);
 		setVisible(true);
-		setSize(270, 350);
+		setSize(310, 350);
 		setIconImage(image);
 		setResizable(false);
 		setLocationRelativeTo(null);
@@ -165,8 +176,6 @@ public class UISqlBatch extends JFrame {
 	}
 
 	private void onClickExecute() {
-		DBParameter parameterVO = new DBParameter();
-
 		Cursor cursor = Cursor.getPredefinedCursor(3);
 		this.mainContainer.setCursor(cursor);
 
@@ -177,7 +186,7 @@ public class UISqlBatch extends JFrame {
 			
 			this.progressBar.setValue(0);
 			this.btExecute.setEnabled(false);
-			createParameterVO(parameterVO);
+			DBParameterVO parameterVO = createParameterVO();
 			Controller controller = new Controller();
 			
 			try {
@@ -206,18 +215,24 @@ public class UISqlBatch extends JFrame {
 		}
 	}
 
-	private void createParameterVO(DBParameter dbParameter) {
+	private DBParameterVO createParameterVO() {
+		DBParameterVO dbParameter = new DBParameterVO();
+		dbParameter.setDatabaseEnum((DatabaseEnum) cbDB.getSelectedItem());
 		dbParameter.setDBName(this.txDBName.getText());
 		dbParameter.setServerName(this.txServerName.getText());
 		dbParameter.setDBPort(this.txDBPort.getText());
 		dbParameter.setDBUser(this.txDBUser.getText());
 		dbParameter.setDBPassword(new String(this.txDBPassword.getPassword()));
+		return dbParameter;
 	}
 
 	private Boolean validateRequiredFields() {
 		Boolean valid = Boolean.valueOf(true);
 		StringBuffer sb = new StringBuffer();
 
+		if (this.txDBName.getText().trim().length() < 1) {
+			sb.append("Database is required. \n");
+		}
 		if (this.txDBName.getText().trim().length() < 1) {
 			sb.append("Database Name is required. \n");
 		}
@@ -231,7 +246,7 @@ public class UISqlBatch extends JFrame {
 			sb.append("User is required. \n");
 		}
 		if (this.txDBPassword.getPassword().length < 1) {
-			sb.append("Passoword is required. \n");
+			sb.append("Password is required. \n");
 		}
 
 		if (sb.toString().trim().length() > 0) {
@@ -244,6 +259,7 @@ public class UISqlBatch extends JFrame {
 	}
 
 	private void cleanFields() {
+		this.cbDB.setSelectedItem(null);
 		this.txDBName.setText("");
 		this.txServerName.setText("");
 		this.txDBPort.setText("");
