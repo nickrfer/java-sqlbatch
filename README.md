@@ -1,5 +1,6 @@
 # SQLBatch
 A java swing application for executing batch DML SQL Statements from files stored in the specified directory.
+
 [![Circle CI](https://circleci.com/gh/nickrfer/sqlbatch.svg?style=svg)](https://circleci.com/gh/nickrfer/sqlbatch)
 
 # Details
