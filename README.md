@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/nickrfer/sqlbatch.png?label=ready&title=Ready)](https://waffle.io/nickrfer/sqlbatch)
 # SQLBatch
 A java swing application for executing batch DML SQL Statements from files stored in the specified directory.
 
