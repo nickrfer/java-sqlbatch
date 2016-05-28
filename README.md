@@ -1,5 +1,10 @@
 # SQLBatch
-An application for executing batch SQL Statements from files stored in a directory. While reading these files, the program checks if the line starts with a DML Command (INSERT, DELETE, UPDATE, MERGE or CALL) and executes it, otherwise it is ignored.
+A java swing application for executing batch DML SQL Statements from files stored in the specified directory.
+[![Circle CI](https://circleci.com/gh/nickrfer/sqlbatch.svg?style=svg)](https://circleci.com/gh/nickrfer/sqlbatch)
+
+# Details
+
+While reading the files, the program checks if the line starts with a DML Command (INSERT, DELETE, UPDATE, MERGE or CALL) and executes it, otherwise it is ignored.
 
 For better optimization, the commit happens when 1000 batchs are added to the PreparedStatement, and at the final iteration.
 Logs will be appended to sqlbatch.log where the generated JAR is executed.
