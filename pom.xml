@@ -4,8 +4,8 @@
 	<groupId>com.sqlbatch</groupId>
 	<artifactId>sqlbatch</artifactId>
 	<packaging>jar</packaging>
-	<version>1.1.0-SNAPSHOT</version>
-	<name>executorsql</name>
+	<version>1.1.1-SNAPSHOT</version>
+	<name>sqlbatch</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -35,23 +35,23 @@
 		<!-- JDBC Drivers -->
 		
 		<!-- DB2 -->
-		<dependency>
-		    <groupId>db2jcc</groupId>
-		    <artifactId>db2jcc</artifactId>
-		    <version>${db2jcc.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ibm.db2.jcc</groupId>
-			<artifactId>db2jcc_license_cu</artifactId>
-			<version>${db2jcc.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>db2jcc</groupId> -->
+<!-- 		    <artifactId>db2jcc</artifactId> -->
+<!-- 		    <version>${db2jcc.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.db2.jcc</groupId> -->
+<!-- 			<artifactId>db2jcc_license_cu</artifactId> -->
+<!-- 			<version>${db2jcc.version}</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- Oracle -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc7</artifactId>
-			<version>${ojdbc7.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.oracle</groupId> -->
+<!-- 			<artifactId>ojdbc7</artifactId> -->
+<!-- 			<version>${ojdbc7.version}</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- SQL Server -->
 		<dependency>
@@ -62,7 +62,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>executorsql</finalName>
+		<finalName>sqlbatch</finalName>
 		<plugins>
 
 			<!-- download source code in Eclipse, best practice -->
@@ -95,7 +95,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>br.com.ctb.executorsql.main.Aplicacao</mainClass>
+							<mainClass>com.sqlbatch.main.Aplicacao</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
