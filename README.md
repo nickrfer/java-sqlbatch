@@ -1,8 +1,10 @@
-[![Stories in Ready](https://badge.waffle.io/nickrfer/sqlbatch.png?label=ready&title=Ready)](https://waffle.io/nickrfer/sqlbatch)
 # SQLBatch
 A java swing application for executing batch DML SQL Statements from files stored in the specified directory.
 
 [![Circle CI](https://circleci.com/gh/nickrfer/sqlbatch.svg?style=svg)](https://circleci.com/gh/nickrfer/sqlbatch)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/nickrfer/sqlbatch)
+[![Stories in Ready](https://badge.waffle.io/nickrfer/sqlbatch.png?label=ready&title=Ready)](https://waffle.io/nickrfer/sqlbatch)
 
 # Details
 
