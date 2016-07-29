@@ -1,20 +1,20 @@
 package com.sqlbatch.dao;
 
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import com.sqlbatch.dao.connection.ConnectionFactory;
 import com.sqlbatch.exception.CommandFileException;
 import com.sqlbatch.exception.DaoException;
 import com.sqlbatch.util.CommandFile;
 import com.sqlbatch.util.DBParameterVO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 
 public class Dao {
-	
-	private static final Logger log = Logger.getLogger(Dao.class);
+
+	private static final Logger log = LogManager.getLogger(Dao.class);
 	private ConnectionFactory factory;
 	private int lastCommitLine;
 	private String lastCommand;
@@ -41,7 +41,7 @@ public class Dao {
 
 	private void executeBatchCommand(CommandFile commandFile, Statement stmt)
 			throws CommandFileException, SQLException {
-		List<String> commandList = null;
+		List<String> commandList;
 		while (!(commandList = commandFile.readPaginatedCommands()).isEmpty()) {
 			
 			for (String command : commandList) {
@@ -72,9 +72,9 @@ public class Dao {
 		}
 	}
 
-	private void closeResources(CommandFile comandoArquivo, Statement stmt) throws DaoException {
+	private void closeResources(CommandFile commandFile, Statement stmt) throws DaoException {
 		try {
-			comandoArquivo.close();
+			commandFile.close();
 		} catch (CommandFileException e) {
 			throw new DaoException(e.getMessage(), e);
 		}

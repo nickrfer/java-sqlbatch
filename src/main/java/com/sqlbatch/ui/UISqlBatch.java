@@ -1,11 +1,16 @@
 package com.sqlbatch.ui;
 
-import java.awt.Container;
-import java.awt.Cursor;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import com.sqlbatch.enums.DatabaseEnum;
+import com.sqlbatch.exception.ControllerException;
+import com.sqlbatch.main.Controller;
+import com.sqlbatch.observer.ProgressObservable;
+import com.sqlbatch.observer.ProgressObserver;
+import com.sqlbatch.util.DBParameterVO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,30 +19,9 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Properties;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-import org.apache.log4j.Logger;
-
-import com.sqlbatch.enums.DatabaseEnum;
-import com.sqlbatch.exception.ControllerException;
-import com.sqlbatch.main.Controller;
-import com.sqlbatch.observer.ProgressObservable;
-import com.sqlbatch.observer.ProgressObserver;
-import com.sqlbatch.util.DBParameterVO;
-
 public class UISqlBatch extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
+	private static final Logger log = LogManager.getLogger(UISqlBatch.class);
 	private JLabel lbDB;
 	private JLabel lbDBName;
 	private JLabel lbServerName;
@@ -56,8 +40,6 @@ public class UISqlBatch extends JFrame {
 	private File uploadDirectory;
 	private Container mainContainer;
 	private JProgressBar progressBar;
-	
-	private static final Logger log = Logger.getLogger(UISqlBatch.class);
 
 	public UISqlBatch() {
 		super("SQL Batch");
@@ -85,7 +67,7 @@ public class UISqlBatch extends JFrame {
 		this.mainContainer.add(this.lbDBUser);
 		this.mainContainer.add(this.lbDBPassword);
 
-		this.cbDB = new JComboBox<DatabaseEnum>(DatabaseEnum.values());
+		this.cbDB = new JComboBox<>(DatabaseEnum.values());
 		this.txDBName = new JTextField();
 		this.txServerName = new JTextField();
 		this.txDBPort = new JTextField();
@@ -134,16 +116,8 @@ public class UISqlBatch extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 
-		this.btExecute.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UISqlBatch.this.onClickExecute();
-			}
-		});
-		this.btClean.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UISqlBatch.this.cleanFields();
-			}
-		});
+		this.btExecute.addActionListener((event) -> UISqlBatch.this.onClickExecute());
+		this.btClean.addActionListener((event) -> UISqlBatch.this.cleanFields());
 		
 		try {
 			readProperties();
@@ -163,11 +137,11 @@ public class UISqlBatch extends JFrame {
 				this.txDBPort.setText(properties.getProperty("db.port"));
 				this.txDBUser.setText(properties.getProperty("db.user"));
 				this.txDBPassword.setText(properties.getProperty("db.password"));
-				
-				String caminhoDiretorio = properties.getProperty("import.path");
-				if (caminhoDiretorio != null) {
-					caminhoDiretorio = caminhoDiretorio.replace('\\', '/');
-					uploadDirectory = new File(caminhoDiretorio);
+
+				String path = properties.getProperty("import.path");
+				if (path != null) {
+					path = path.replace('\\', '/');
+					uploadDirectory = new File(path);
 				}
 			}
 		} catch (URISyntaxException e) {
@@ -250,8 +224,7 @@ public class UISqlBatch extends JFrame {
 		}
 
 		if (sb.toString().trim().length() > 0) {
-			valid = Boolean.valueOf(false);
-
+			valid = false;
 			JOptionPane.showMessageDialog(this, sb.toString());
 		}
 

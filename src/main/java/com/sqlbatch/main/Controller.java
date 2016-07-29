@@ -1,9 +1,5 @@
 package com.sqlbatch.main;
 
-import java.io.File;
-
-import org.apache.log4j.Logger;
-
 import com.sqlbatch.dao.Dao;
 import com.sqlbatch.exception.CommandFileException;
 import com.sqlbatch.exception.ControllerException;
@@ -12,10 +8,14 @@ import com.sqlbatch.observer.ProgressObservable;
 import com.sqlbatch.util.CommandDirectory;
 import com.sqlbatch.util.CommandFile;
 import com.sqlbatch.util.DBParameterVO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.File;
 
 public class Controller {
-	
-	private static final Logger log = Logger.getLogger(Controller.class);
+
+	private static final Logger log = LogManager.getLogger(Controller.class);
 	
 	public void insertBatch(DBParameterVO dbParameter, File directory, ProgressObservable observable) throws ControllerException {
 		validateDirectory(directory);
@@ -27,13 +27,13 @@ public class Controller {
 		try {
 			CommandDirectory commandDirectory = new CommandDirectory(directory);
 			int totalFilesInFolder = commandDirectory.getTotalFiles();
-			log.info("Total files in folder: " + totalFilesInFolder);
+			log.info("Total files in folder: {}", totalFilesInFolder);
 			
 			int currentFile = 1;
 			while (commandDirectory.hasNext()) {
 				CommandFile commandFile = commandDirectory.nextFile();
-				
-				log.info(String.format("Starting file: %s", commandFile.getFileName()));
+
+				log.info("Starting file: {}", commandFile.getFileName());
 				dao.insertBatch(dbParameter, commandFile);
 				
 				commandFile.moveFile();

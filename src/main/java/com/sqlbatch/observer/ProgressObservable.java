@@ -16,10 +16,7 @@ public class ProgressObservable {
 	public void notifyObservers(int totalOfFiles, int currentFile) {
 		this.totalOfFiles = totalOfFiles;
 		this.currentFile = currentFile;
-		
-		for (ProgressObserver observer : observerList) {
-			observer.notifyObserver();
-		}
+		observerList.forEach((observer) -> observer.notifyObserver());
 	}
 
 	public int getTotalOfFiles() {
