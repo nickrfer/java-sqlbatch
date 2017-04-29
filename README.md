@@ -1,7 +1,7 @@
 # SQLBatch
 A java swing application for executing batch DML SQL Statements from files stored in the specified directory.
 
-[![Codacy Code Badge](https://api.codacy.com/project/badge/grade/ddb909b3f3ba4b21a20b8de2ae972215)](https://www.codacy.com/app/java-sqlbatch)
+[![Codacy Code Badge](https://api.codacy.com/project/badge/grade/d739b8f7d5714a73967803de79e041cd)](https://www.codacy.com/app/java-sqlbatch)
 [![Circle CI](http://circleci.com/gh/nickrfer/java-sqlbatch.svg?style=svg)](http://circleci.com/gh/nickrfer/java-sqlbatch)
 [![Dependency Status](https://dependencyci.com/github/nickrfer/java-sqlbatch/badge)](https://dependencyci.com/github/nickrfer/java-sqlbatch)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
